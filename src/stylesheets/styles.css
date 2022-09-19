@@ -1,0 +1,13 @@
+/* stylesheets */
+@import url("https://matrixui.netlify.app/assets/stylesheet.css");
+@import url("react-toastify/dist/ReactToastify.css");
+@import url("./variables.css");
+@import url("./buttons.css");
+@import url("./flex.css");
+
+body {
+    background-color: var(--bg-dark);
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
