@@ -6,8 +6,13 @@
 @import url("./flex.css");
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--black);
     padding: 0;
     border: 0;
     margin: 0;
+}
+
+.wrapper-main {
+    position: relative;
+    grid-template-columns: 1fr 6fr;
 }

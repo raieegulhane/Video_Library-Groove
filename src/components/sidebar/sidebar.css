@@ -1,0 +1,23 @@
+.sidebar-wr {
+    position: sticky;
+    top: 12%;
+    height: 87vh;
+    padding: 30% 1rem;
+    gap: 1rem;
+}
+
+.sb-link {
+    color: var(--grey3);
+    font-weight: bold;
+    text-decoration: none;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--br-sq);
+    gap: 0.5rem;
+}
+
+.sb-link:hover {
+    color: var(--grey2);
+    background-color: var(--grey5);
+}

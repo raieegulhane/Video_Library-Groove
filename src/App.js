@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className={`App ${theme}`}>
       <Navbar />
-      <main>
+      <main className="grid wrapper-main">
         <SideBar />
         <SiteRoutes />
       </main>

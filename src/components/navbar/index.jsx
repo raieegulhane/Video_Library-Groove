@@ -2,8 +2,7 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../contexts";
 import { SearchBox } from "./searchbox";
-import NavbarLogo from "../../assets/logos/groovv-logo.svg";
-import { useState } from "react";
+import NavbarLogo from "../../assets/logos/nirvana-logo.svg";
 
 export const Navbar = () => {
     const { theme } = useTheme();

@@ -4,6 +4,8 @@ export const Home = () => {
     return (
         <div>
             <Hero />
+            <Hero />
+
         </div>
     );
 }

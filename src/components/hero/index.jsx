@@ -5,8 +5,9 @@ export const Hero = () => {
     return (
         <header className="hero-wr fx-c">
             <img 
-                src={HeroImage}
                 className="hero-img"
+                src={HeroImage}
+                alt="hero"
             />
             <div className="hero-overlay">
             </div>
