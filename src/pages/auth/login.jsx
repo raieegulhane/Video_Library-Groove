@@ -21,9 +21,9 @@ export const Login = () => {
         setLoginCreds((loginCreds) => ({ ...loginCreds, [name]: value}))
     }
 
-    // useEffect(() => {
-    //     isAuth && navigate(location?.state?.from ? location.state.from : "/home", { replace: true });
-    // }, [isAuth])
+    useEffect(() => {
+        isAuth && navigate(location?.state?.from ? location.state.from : "/home", { replace: true });
+    }, [isAuth])
 
     const loginHandler = async (event, formData, guestLoginStatus) => {
         event.preventDefault();
@@ -76,67 +76,59 @@ export const Login = () => {
         loginHandler(event, { email: "janedoe@example.com", password: "janeDoe123"}, true);
     }
 
-    return(
-        <div className="auth-wrapper">
-            <div className="main-container container-fit">
-                <div className="main-header flex-row flex_justify-center">
-                    <h1 className="main-heading txt-underline">Login</h1>
-                </div>
-
-                <form className="auth-form flex-col">
-                    <label
-                        className="flex-col"
-                        htmlFor="email"
-                    >
-                        <span className="auth-label-txt">Email:</span> 
+    return (
+        <div className="auth-wr">
+            <div className="auth-cn auth-cn-login">
+                <h1 className="auth-heading">Login</h1>
+                <form 
+                    className="auth-form fx-col"
+                    action="submit"
+                >
+                    <label htmlFor="email">
                         <input 
                             className="auth-inp"
                             name="email"
                             type="email"
-                            placeholder="email@example.com"
+                            placeholder="Email"
                             required
                             value={email}
                             onChange={updateLoginCreds}
                         />
                     </label>
-                    <label
-                        className="flex-col"
-                        htmlFor="password"
-                    >
-                        <span className="auth-label-txt">Password:</span>
+                    <label htmlFor="password">
                         <PasswordInput
                             id={"password"}
                             name={"password"}
-                            placeholder={"******"}
+                            placeholder={"Password"}
                             value={password}
                             onChange={updateLoginCreds}
                         />
                     </label>
-                    
 
-                    <div className="form-btn-container flex-col">
+                    <div className="form-btn-cn fx-c">
                         <button
-                            className="btn btn-primary btn-wt-icon btn-sq"
+                            className="auth-btn-pri btn btn-primary btn-wt-i"
+                            type="submit"
                             onClick={(e) => loginHandler(e, loginCreds, false)}
                         >
                             <span>Continue</span>
                             <i className="fa-solid fa-angles-right"></i>
                         </button>
                         <button
-                            className="btn btn-outline btn-wt-icon btn-sq"
+                            className="auth-btn-ol btn btn-outline btn-wt-i btn-rd"
+                            type="submit"
                             onClick={(guestLoginHandler)}
                         >
-                            <span>Continue as Guest</span>
+                            Continue as Guest
                             <i className="fa-solid fa-user-astronaut"></i>
                         </button>
                     </div>
                 </form>
-
-                <p className="alt-auth-cta flex-row flex_justify-center">
+                <p className="auth-alt-cta fx-r fx-js-c">
                     <span>New user?</span> 
                     <Link 
                         to="/signup" 
-                        className="btn-link link-noDecoration"
+                        className="btn-link auth-btn-link"
                     >
                         Sign Up
                     </Link> 

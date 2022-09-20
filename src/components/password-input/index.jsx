@@ -1,7 +1,6 @@
 import "./password-input.css";
 import { useState } from "react";
 
-
 export const PasswordInput = ({ id, name, placeholder, value, onChange }) => {
     const [pwVisibibleState, setPwVisibleState] = useState(false);
 
@@ -11,7 +10,7 @@ export const PasswordInput = ({ id, name, placeholder, value, onChange }) => {
     }
 
     return(
-        <div className="pw-inp-container">
+        <div className="pw-inp-cn">
             <input
                 className="pw-inp"
                 id={id}

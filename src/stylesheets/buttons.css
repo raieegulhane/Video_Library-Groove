@@ -1,6 +1,8 @@
 .btn {
+    display: flex;
+    justify-content: center;
     border-color: var(--pri);
-    border-radius: var(--br-rad);
+    border-radius: var(--br-cr);
 }
 
 .btn:hover {
@@ -15,6 +17,10 @@
 
 .btn-primary {
     background-color: var(--pri);
+}
+
+.btn-primary:hover {
+    background-color: var(--sec);
 }
 
 .btn-outline {
@@ -40,4 +46,14 @@
 .btn-icon:hover {
     background-color: transparent;
     color: var(--grey1)
+}
+
+.btn-link {
+    color: var(--pri);
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: var(--sec);
+    text-decoration: none;
 }
