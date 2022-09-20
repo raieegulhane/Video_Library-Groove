@@ -1,11 +1,27 @@
 import "./navbar.css";
-import { Link } from "react-router-dom";
-import { useTheme } from "../../contexts";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuth, useTheme } from "../../contexts";
 import { SearchBox } from "./searchbox";
 import NavbarLogo from "../../assets/logos/nirvana-logo.svg";
 
 export const Navbar = () => {
-    const { theme } = useTheme();
+    const navigate = useNavigate();
+    const { authState: { isAuth }, authDispatch } = useAuth();
+
+    const authButtonHandler = () => {
+        if (isAuth) {
+            localStorage.removeItem("auth-token");
+            localStorage.removeItem("user-data");
+    
+            authDispatch({ type: "AUTH_CLEAR" });
+    
+            navigate("/login");
+            toast.success("Logged out.")
+        } else {
+            navigate("/login");
+        }
+    }
     return (
         <nav 
             className="nav-wr fx-r fx-js-sb fx-al-c"
@@ -21,16 +37,20 @@ export const Navbar = () => {
                 <SearchBox />
             </div>
             <div className="fx-r fx-al-c gap-1">
-                <button className="btn-icon">
+                <button 
+                    className="btn btn-wt-i btn-outline btn-1"
+                    onClick={authButtonHandler}
+                >
                 {
-                    theme === "dark-theme" ? 
-                    <i className="material-icons">light_mode</i> :
-                    <i className="material-icons">dark_mode</i>
+                    isAuth ?
+                    <span>Logout</span> :
+                    <span>Login</span>
                 }
-                </button>
-                <button className="btn btn-wt-i btn-outline btn-1">
-                    Login
+                {
+                    isAuth ?
+                    <i className="fa-solid fa-right-from-bracket"></i> :
                     <i className="fa-solid fa-right-to-bracket"></i>
+                }
                 </button>
             </div>
         </nav>

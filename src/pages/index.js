@@ -1,3 +1,6 @@
+export { Login } from "./auth/login";
+export { Signup } from "./auth/signup";
+
 export { Home } from "./home";
 export { WatchLater } from "./watch-later";
 export { VideoPlayer } from "./video-player";

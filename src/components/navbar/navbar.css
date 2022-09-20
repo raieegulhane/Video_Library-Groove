@@ -1,14 +1,13 @@
 .nav-wr {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     background-color: var(--nav-dark);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 0.5rem 2rem;
     z-index: 5;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 12px 1px;
 }
 
 .nav-logo {

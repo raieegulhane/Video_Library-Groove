@@ -11,18 +11,21 @@
     --pri: #e50914;
     --sec: #ff3d47;
     /* --sec: #b10b0b; */
-    --ter: #720909;
+    --btn: #720909;
+    --btn-hov: rgb(164, 24, 24);
     --bg-dark: #111;
     --bg-light: #eeeeee;
-    --nav-dark: #00000050;
+    --nav-dark: #000000c0;
     --black: #000000;
     --white: #ffffff;
     --grey1: #cccccc;
     --grey2: #aaaaaa;
     --grey3: #777;
     --grey5: #272727;
+    --auth-bg: #37373720;
+    --auth-inp: #00000050;
 
-    --text: #ddd;
+    --text: #ccc;
 
     --gradient-rad: radial-gradient(circle, transparent, #00000089);
 
