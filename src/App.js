@@ -1,7 +1,7 @@
 import "./stylesheets/styles.css";
 import { SiteRoutes } from "./routes";
 import { useTheme } from "./contexts";
-import { Navbar } from "./components";
+import { Navbar, SideBar } from "./components";
 
 const App = () => {
   const { theme } = useTheme();
@@ -9,7 +9,10 @@ const App = () => {
   return (
     <div className={`App ${theme}`}>
       <Navbar />
-      <SiteRoutes />
+      <main>
+        <SideBar />
+        <SiteRoutes />
+      </main>
     </div>
   );
 }

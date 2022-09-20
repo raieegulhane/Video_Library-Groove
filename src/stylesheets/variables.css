@@ -12,13 +12,16 @@
     --sec: #ff3d47;
     /* --sec: #b10b0b; */
     --ter: #720909;
-    --bg-dark: #171717;
+    --bg-dark: #111;
     --bg-light: #eeeeee;
+    --nav-dark: #111111dd;
     --black: #000000;
     --white: #ffffff;
     --grey1: #cccccc;
     --grey2: #aaaaaa;
     --grey5: #272727;
+
+    --gradient-rad: radial-gradient(circle, transparent, #00000089);
 
     /*** border ***/
     --br: 1px solid var(--pri);
