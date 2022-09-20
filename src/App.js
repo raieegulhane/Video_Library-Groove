@@ -2,7 +2,7 @@ import "./stylesheets/styles.css";
 import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { SiteRoutes } from "./routes";
-import { Navbar, SideBar } from "./components";
+import { Footer, Navbar, SideBar } from "./components";
 
 const App = () => {
   const location = useLocation();
@@ -29,6 +29,7 @@ const App = () => {
         </div> :
         <SiteRoutes />
       }
+      <Footer />
     </div>
   );
 }
