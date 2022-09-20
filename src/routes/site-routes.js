@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 import {
+    Login, 
+    Signup,
     Home,
     Explore,
     // VideoPlayer,
@@ -13,15 +15,19 @@ import {
 export const SiteRoutes = () => {
     return (
         <Routes>
-            <Route path="/mockman" element={<Mockman />}></Route>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/home" element={<Home />}></Route>
-            <Route path="/explore" element={<Explore />}></Route>
-            {/* <Route path="/videoplayer" element={<Home />}></Route> */}
-            <Route path="/playlist" element={<Playlist />}></Route>
-            <Route path="/liked" element={<Liked />}></Route>
-            <Route path="/watch-later" element={<WatchLater />}></Route>
-            <Route path="/history" element={<History />}></Route>
+            <Route path="/mockman" element={<Mockman />} />
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/explore" element={<Explore />} />
+            {/* <Route path="/videoplayer" element={<Home />} /> */}
+            <Route path="/playlist" element={<Playlist />} />
+            <Route path="/liked" element={<Liked />} />
+            <Route path="/watch-later" element={<WatchLater />} />
+            <Route path="/history" element={<History />} />
         </Routes>
     );
 }
