@@ -1,8 +1,3 @@
-/**
- * Videos Database can be added here.
- * You can add videos of your wish with different attributes
- * */
-
 export const videos = [
   {
     _id: "Wo5dMEP_BbI",

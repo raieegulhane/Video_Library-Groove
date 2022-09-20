@@ -1,0 +1,17 @@
+.hero-wr {
+    position: relative;
+}
+
+.hero-img {
+    max-width: 100%;
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 10%;
+    right: 4%;
+    background-image: var(--gradient-rad);
+    width: 40%;
+    height: 50%;
+    border-radius: var(--br-sq);
+}

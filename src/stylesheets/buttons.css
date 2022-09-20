@@ -1,0 +1,43 @@
+.btn {
+    border-color: var(--pri);
+    border-radius: var(--br-rad);
+}
+
+.btn:hover {
+    border-color: var(--sec);
+}
+
+.btn.btn-1 {
+    font-weight: normal;
+    padding: 0.25rem 1rem;
+    border-width: 1px;
+}
+
+.btn-primary {
+    background-color: var(--pri);
+}
+
+.btn-outline {
+    color: var(--pri);
+}
+
+.btn-outline:hover {
+    color: var(--sec);
+}
+
+.btn-wt-i {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    color: var(--grey2);
+    cursor: pointer;
+}
+
+.btn-icon:hover {
+    background-color: transparent;
+    color: var(--grey1)
+}
