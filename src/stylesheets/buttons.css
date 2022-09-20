@@ -1,12 +1,12 @@
 .btn {
     display: flex;
     justify-content: center;
-    border-color: var(--pri);
+    border-color: var(--btn);
     border-radius: var(--br-cr);
 }
 
 .btn:hover {
-    border-color: var(--sec);
+    border-color: var(--btn-hov);
 }
 
 .btn.btn-1 {
@@ -16,19 +16,19 @@
 }
 
 .btn-primary {
-    background-color: var(--pri);
+    background-color: var(--btn);
 }
 
 .btn-primary:hover {
-    background-color: var(--sec);
+    background-color: var(--btn-hov);
 }
 
 .btn-outline {
-    color: var(--pri);
+    color: var(--btn);
 }
 
 .btn-outline:hover {
-    color: var(--sec);
+    color: var(--btn-hov);
 }
 
 .btn-wt-i {
@@ -47,13 +47,12 @@
     background-color: transparent;
     color: var(--grey1)
 }
-
 .btn-link {
-    color: var(--pri);
+    color: var(--btn);
     text-decoration: none;
 }
 
 .btn-link:hover {
-    color: var(--sec);
+    color: var(--btn-hov);
     text-decoration: none;
 }

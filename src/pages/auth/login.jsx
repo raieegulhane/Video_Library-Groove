@@ -107,7 +107,7 @@ export const Login = () => {
 
                     <div className="form-btn-cn fx-c">
                         <button
-                            className="auth-btn-pri btn btn-primary btn-wt-i"
+                            className="auth-btn btn btn-primary btn-wt-i"
                             type="submit"
                             onClick={(e) => loginHandler(e, loginCreds, false)}
                         >
@@ -115,7 +115,7 @@ export const Login = () => {
                             <i className="fa-solid fa-angles-right"></i>
                         </button>
                         <button
-                            className="auth-btn-ol btn btn-outline btn-wt-i btn-rd"
+                            className="auth-btn btn btn-outline btn-wt-i btn-rd"
                             type="submit"
                             onClick={(guestLoginHandler)}
                         >
@@ -128,7 +128,7 @@ export const Login = () => {
                     <span>New user?</span> 
                     <Link 
                         to="/signup" 
-                        className="btn-link auth-btn-link"
+                        className="btn-link"
                     >
                         Sign Up
                     </Link> 
