@@ -1,0 +1,42 @@
+.sort-dd-wr {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    background-color: var(--grey4);
+    padding: 1.75rem 1.25rem 1rem;
+    border-radius: var(--br-sq);
+    gap: 0.25rem;
+    z-index: 2;
+    gap: 1rem;
+}
+
+.btn-icon.sort-dd-close-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    height: fit-content;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.dd-close-icon {
+    font-size: 1rem;
+}
+
+.dd-close-icon:hover {
+    font-size: 1.1rem;
+}
+
+.sort-dd-label {
+    gap: 0.5rem;
+}
+
+.clr-sort-btn {
+    color: var(--grey2);
+    margin-left: auto;
+}
+
+.clr-sort-btn:hover {
+    color: var(--grey3);
+    text-decoration: underline;
+}

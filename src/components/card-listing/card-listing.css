@@ -1,0 +1,18 @@
+.card-list-wr {
+    height: 68vh;
+    overflow-y: auto;
+}
+
+.card-list-wr::-webkit-scrollbar {
+    width: 3px;
+}
+
+.card-list-wr::-webkit-scrollbar-thumb {
+    background-color: var(--grey5);
+    border-radius: 3px;
+}
+
+.card-list-wr::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 3px;
+}

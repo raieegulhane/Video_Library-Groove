@@ -3,7 +3,7 @@ import { VideoCardVr } from "..";
 
 export const CardList = ({ videoList }) => {
     return(
-        <div className="cl-wr">
+        <div className="card-list-wr">
             <ul className="list-noBullets fx-r fx-wrap fx-js-se">
             {
                 videoList.map((video, index) => {

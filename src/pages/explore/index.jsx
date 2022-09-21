@@ -1,44 +1,35 @@
 import "./explore.css";
-import { useVideo } from "../../contexts";
-import { CardList } from "../../components";
+import { useVideo, useOperation } from "../../contexts";
+import { CardList, CategoryList, SortDropdown } from "../../components";
+import { getFilteredAndSortedVideos } from "../../utils";
 
 export const Explore = () => {
-    const { videoState, videoDispatch } = useVideo();
-    const {
-        allVideos,
-        allCategories,
-    } = videoState;
+    const { videoState: { allVideos } } = useVideo();
+    const { operationState, operationDispatch } = useOperation();
+
+    const sortedAndFilteredVideoList = getFilteredAndSortedVideos(allVideos, operationState)
 
     return (
         <div className="explore-wr fx-c">
-            <div className="ex-btn-cn fx-r">
+            <div className="op-cn fx-r">
+                <CategoryList />
                 <button 
-                    className="btn btn-cr btn-outline category-chip"
+                    className="btn-sort btn-wt-i btn-link"
+                    onClick={() => operationDispatch({ type: "SORT_DROPDOWN" })}
                 >
-                    All
-                </button>
-                {
-                    allCategories.map(({_id, categoryName}) => {
-                        return(
-                            <button 
-                                className="btn btn-cr btn-outline category-chip"
-                                key={_id}
-                            >
-                                {categoryName}
-                            </button>  
-                        );
-                    })
-                }
-                <button className="btn-sort btn-wt-i btn-link">
                     Sort 
                     <i class="material-icons-outlined">sort</i>
                 </button>
+                {
+                    operationState.showSortDropdown &&
+                    <SortDropdown />
+                }
             </div>
             <div className="vid-list-info">
                 <p className="">Videos found: <span className="ex-info-txt">{allVideos.length}</span></p>
             </div>
             <CardList 
-                videoList={allVideos}
+                videoList={sortedAndFilteredVideoList}
             />
         </div>
     );
