@@ -29,7 +29,7 @@ export { postWatchLaterService } from "./watch-later-services/post-watch-later-s
 export { deleteWatchLaterService } from "./watch-later-services/delete-watch-later-service";
 
 // history services
-export { getHistoryService } from "./history-services"
-export { postHistoryService } from "./history-services"
-export { deleteHistoryVideoService } from "./history-services"
-export { deleteHistoryService } from "./history-services"
+export { getHistoryService } from "./history-services/get-history-service";
+export { postHistoryService } from "./history-services/post-history-service";
+export { deleteHistoryVideoService } from "./history-services/delete-history-video-service";
+export { deleteHistoryService } from "./history-services/delete-history-service";
