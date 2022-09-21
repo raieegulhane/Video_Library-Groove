@@ -6,7 +6,7 @@ import { Footer, Navbar, SideBar } from "./components";
 
 const App = () => {
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
     <div className="App">
       <ToastContainer
@@ -22,14 +22,19 @@ const App = () => {
       />
       <Navbar />
       {
-        location.pathname !== "/login" && location.pathname !=="/signup" ?
+        location.pathname !== "/login" && 
+        location.pathname !== "/signup" &&
+        location.pathname !== "/" &&
+        location.pathname !== "/home" ?
         <div className="grid wrapper-main">
           <SideBar />
-          <SiteRoutes />
+          <div>
+            <SiteRoutes />
+            <Footer />
+          </div>
         </div> :
         <SiteRoutes />
       }
-      <Footer />
     </div>
   );
 }
