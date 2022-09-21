@@ -5,4 +5,5 @@ export const getPlaylistVideosService = (playlistId, authToken) => {
         `/api/user/playlists/${playlistId}`,
         {headers: {authorization: authToken}}
     );
+    return(response);
 }

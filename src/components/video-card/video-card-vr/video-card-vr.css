@@ -1,0 +1,34 @@
+.vc-vr-wr {
+    width: 300px;
+    padding: 0.5rem;
+    border-radius: var(--br-sq);
+    margin: 3rem;
+    gap: 0.5rem;
+    transition: transform .2s;
+    cursor: pointer;
+}
+
+.vc-vr-wr:hover {
+    background-color: var(--grey5);
+    transform: scale(1.1);
+}
+
+.vc-vr-cn {
+    gap: 0.5rem;
+}
+
+.img-channel {
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid var(--grey5);
+    border-radius: var(--br-rd);
+}
+
+.vc-title {
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.vc-txt {
+    color: var(--grey3);
+}
