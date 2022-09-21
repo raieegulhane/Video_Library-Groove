@@ -1,6 +1,6 @@
 export const getTrimmedTitleFunction = (title) => {
-    if (title.length > 18) {
-        return(`${title.substring(0, 18)}...`)
+    if (title.length > 15) {
+        return(`${title.substring(0, 15)}...`)
     }
     return(title);
 }

@@ -26,7 +26,7 @@ const App = () => {
         location.pathname !== "/signup" &&
         location.pathname !== "/" &&
         location.pathname !== "/home" ?
-        <div className="grid wrapper-main">
+        <div className="grid main-wr">
           <SideBar />
           <div>
             <SiteRoutes />

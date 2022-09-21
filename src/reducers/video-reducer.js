@@ -1,5 +1,7 @@
 const initialVideoValues = {
     allVideos: [],
+    allCategories: [],
+    selectedCategory: "",
     // showSearched: false,
     // showClicked: false,
     // searchInput: "",
@@ -13,7 +15,13 @@ const videoReducerFunction = (state, { type, payload }) => {
         case "FETCH_VIDEOS": 
             return ({
                 ...state,
-                productList: [ ...payload ]
+                allVideos: [ ...payload ]
+            });
+
+        case "FETCH_CATEGORIES": 
+            return ({
+                ...state,
+                allCategories: [ ...payload ]
             });
         // case "INIT_SEARCH":
         //     return ({

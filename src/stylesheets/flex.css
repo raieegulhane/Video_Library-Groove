@@ -24,6 +24,14 @@
     justify-content: space-between;
 }
 
+.fx-js-se {
+    justify-content: space-evenly;
+}
+
+.fx-js-sa {
+    justify-content: space-around;
+}
+
 .fx-al-c {
     align-items: center;
 }

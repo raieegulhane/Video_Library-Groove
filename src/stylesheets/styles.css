@@ -14,7 +14,7 @@ body {
     scroll-behavior: smooth;
 }
 
-.wrapper-main {
+.main-wr {
     position: relative;
     background-color: var(--bg-dark);
     grid-template-columns: 1fr 5.5fr;

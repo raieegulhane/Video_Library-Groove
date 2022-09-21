@@ -4,12 +4,14 @@ import { VideoCardVr } from "..";
 export const CardList = ({ videoList }) => {
     return(
         <div className="cl-wr">
-            <ul className="list-noBullets fx-r fx-wrap gap-1">
+            <ul className="list-noBullets fx-r fx-wrap fx-js-se">
             {
-                videoList.map((video) => {
+                videoList.map((video, index) => {
                     return(
-                        <li>
-                            <VideoCardVr />
+                        <li key={index}>
+                            <VideoCardVr 
+                                video={video}
+                            />
                         </li>
                     );
                 })

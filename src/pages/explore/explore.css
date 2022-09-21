@@ -1,0 +1,24 @@
+.explore-wr {
+    padding: 1rem;
+}
+
+.ex-btn-cn {
+    padding: 1.25rem 2rem;
+    gap: 1.25rem;
+    overflow-y: hidden;
+}
+
+.btn-sort {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.vid-list-info {
+    color: var(--grey2);
+    padding: 1rem 2.25rem;
+}
+
+.ex-info-txt {
+    color: var(--pri);
+}
