@@ -2,18 +2,18 @@
     position: relative;
     background: url(../../assets/images/auth-img.jpg);
     background-size: cover;
-    height: 100vh;
+    height: 90vh;
 }
 
 .auth-cn {
     position: absolute;
-    right: 15%;
+    right: 17%;
     background-color: var(--auth-bg);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     color: var(--text);
     height: fit-content;
-    min-width: 450px;
+    min-width: 400px;
     padding: 1rem 2rem;
     border-radius: var(--br-sq);
     box-shadow: -10px -10px 20px rgba(90, 90, 90, 0.35), 
@@ -21,11 +21,11 @@
 }
 
 .auth-cn-signup {
-    top: 19%;
+    top: 9%;
 }
 
 .auth-cn-login {
-    top: 25%
+    top: 15%
 }
 
 .auth-heading {
