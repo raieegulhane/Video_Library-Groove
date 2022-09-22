@@ -1,7 +1,13 @@
+import { useUserData } from "../../contexts";
+import { CommonPage } from "../../components";
+
 export const Liked = () => {
+    const { userDataState : { liked }} = useUserData();
+
     return (
-        <div>
-            LIKED
-        </div>
+        <CommonPage 
+            videoList={liked}
+            page="liked"
+        />
     );
 }

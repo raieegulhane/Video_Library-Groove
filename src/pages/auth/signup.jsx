@@ -31,7 +31,7 @@ export const Signup = () => {
     } = userDetails;
 
     useEffect(() => {
-        isAuth && navigate(location?.state?.from ? location.state.from : "/home", { replace: true });
+        isAuth && navigate(location?.state?.from ? location.state.from : "/", { replace: true });
     }, [isAuth])
     
     const updateUserDetails = (event) => {
@@ -157,7 +157,7 @@ export const Signup = () => {
 
                     <div className="form-btn-cn fx-c">
                         <button
-                            className="auth-btn btn btn-primary btn-wt-i"
+                            className="auth-btn btn btn-primary btn-wt-i btn-sq"
                             type="submit"
                             onClick={signupHandler}
                         >

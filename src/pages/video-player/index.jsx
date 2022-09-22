@@ -1,14 +1,19 @@
 import "./video-player.css";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ReactPlayer from 'react-player/youtube'
 import { toast } from "react-toastify";
-import { getVideoByIdService } from "../../services";
+import { deleteLikedService, deleteWatchLaterService, getVideoByIdService, postLikedService, postWatchLaterService } from "../../services";
 import { getShortenedViewsFunction } from "../../utils";
+import { useAuth, useUserData } from "../../contexts";
 
 export const VideoPlayer = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { videoId } = useParams();
+    const { authState: { isAuth, authToken }} = useAuth();
+    const { userDataState, userDataDispatch } = useUserData();
+    const { liked, watchLater } = userDataState;
     const [currentVideo, setCurrentVideo] = useState({});
     const {
         _id,
@@ -21,6 +26,25 @@ export const VideoPlayer = () => {
         channelThumbnail
     } = currentVideo;
     const editedViews = getShortenedViewsFunction(views);
+    const [isLiked, setIsLiked] = useState(false);
+    const [inWatchlater, setInWatchlater] = useState(false);
+
+    useEffect (() => {
+        fetchCurrentVideo()
+    }, [videoId]);
+
+    useEffect(() => {
+        liked.find((item) => item._id === _id) && setIsLiked(true);
+        watchLater.find((item) => item._id === _id) && setInWatchlater(true);
+        
+    }, [_id]);
+
+    const loginPromptHandler = () => {
+        if (!isAuth) {
+            toast.warning("Please login to continue");
+            return navigate("/login", { state: { from: `/video/${videoId}` } });
+        }
+    }
     
     const fetchCurrentVideo = async () => {
         try {
@@ -32,9 +56,64 @@ export const VideoPlayer = () => {
         }
     }
 
-    useEffect (() => {
-        fetchCurrentVideo()
-    }, [videoId]);
+    const likeVideoHandler = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        loginPromptHandler();
+
+        try {
+            const { data: { likes }} = await postLikedService(currentVideo, authToken);
+            userDataDispatch({ type: "SET_LIKED", payload: likes });
+            setIsLiked(true);
+            toast.success("You liked a video");
+        } catch (error) {
+            console.log("ERROR__VIDEO_CARD__LIKE_VIDEO: ", error);
+        }
+    }
+
+    const unlikeVideoHandler = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        try {
+            const { data: { likes }} = await deleteLikedService(_id, authToken);
+            userDataDispatch({ type: "SET_LIKED", payload: likes });
+            setIsLiked(false);
+            toast.info("You unliked a video");
+        } catch (error) {
+            console.log("ERROR__VIDEO_CARD__LIKE_VIDEO: ", error);
+        }
+    }
+
+    const addToWtachlaterHandler = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        loginPromptHandler();
+
+        try {
+            const { data: { watchlater }} = await postWatchLaterService(currentVideo, authToken);
+            userDataDispatch({ type: "SET_WATCHLATER", payload: watchlater });
+            setInWatchlater(true);
+            toast.success("Video added to watch later");
+        } catch (error) {
+            console.log("ERROR__VIDEO_CARD__ADD_TO_WATCHLATER: ", error);
+        }
+    }
+
+    const removeFromWathclaterHandler = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        try {
+            const { data: { watchlater }} = await deleteWatchLaterService(_id, authToken);
+            userDataDispatch({ type: "SET_WATCHLATER", payload: watchlater });
+            setInWatchlater(false);
+            toast.info("Video removed from watch later");
+        } catch (error) {
+            console.log("ERROR__VIDEO_CARD__REMOVE_FROM_WATCHLATER: ", error);
+        }
+    }
 
     return (
         <div className="vp-wr">
@@ -67,15 +146,23 @@ export const VideoPlayer = () => {
                     </div>
                 </div>
                 <div className="vp-btn-cn fx-r">
-                    <button className="vp-btn fx-c fx-al-c">
+                    <button 
+                        className={`vp-btn ${isLiked && "vp-btn-selected"} fx-c fx-al-c`}
+                        onClick={isLiked ? unlikeVideoHandler : likeVideoHandler}
+                    >
                         <span className="vp-btn-icon material-icons-outlined">thumb_up</span>
-                        <span className="txt-sm">Like Video</span>
+                        <span className="txt-sm">{isLiked? "Unlike" : "Like"} Video</span>
                     </button>
-                    <button className="vp-btn fx-c fx-al-c">
+                    <button 
+                        className="vp-btn fx-c fx-al-c"
+                    >
                         <span className="vp-btn-icon material-icons-outlined">queue_music</span>
                         <span className="txt-sm">Add to Playlist</span>
                     </button>
-                    <button className="vp-btn fx-c fx-al-c">
+                    <button 
+                        className={`vp-btn ${inWatchlater && "vp-btn-selected"} fx-c fx-al-c`}
+                        onClick={inWatchlater ? removeFromWathclaterHandler : addToWtachlaterHandler}
+                    >
                         <span className="vp-btn-icon material-icons-outlined">watch_later</span>
                         <span className="txt-sm">Watch Later</span>
                     </button>

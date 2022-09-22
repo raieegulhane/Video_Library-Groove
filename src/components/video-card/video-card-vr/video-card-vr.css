@@ -57,12 +57,18 @@
     height: fit-content;
 }
 
+.btn-icon.vc-vr-btn:hover {
+    color: var(--text);
+}
+
+.btn-icon.vc-vr-btn.vc-vr-btn-selected {
+    color: var(--pri);
+}
+
 .vc-del-btn-icon {
     font-size: 1.25rem;
     margin-right: 0.5rem;
     margin-left: auto;
 }
 
-.btn-icon.vc-vr-btn:hover {
-    color: var(--text);
-}
+

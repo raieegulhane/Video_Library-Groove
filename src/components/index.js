@@ -7,3 +7,4 @@ export { VideoCardVr } from "./video-card/video-card-vr";
 export { CardList } from "./card-listing";
 export { CategoryList } from "./category-list";
 export { SortDropdown } from "./sort-dropdown";
+export { CommonPage } from "./common-page";

@@ -22,7 +22,7 @@ export const Login = () => {
     }
 
     useEffect(() => {
-        isAuth && navigate(location?.state?.from ? location.state.from : "/home", { replace: true });
+        isAuth && navigate(location?.state?.from ? location.state.from : "/", { replace: true });
     }, [isAuth])
 
     const loginHandler = async (event, formData, guestLoginStatus) => {
@@ -107,7 +107,7 @@ export const Login = () => {
 
                     <div className="form-btn-cn fx-c">
                         <button
-                            className="auth-btn btn btn-primary btn-wt-i"
+                            className="auth-btn btn btn-primary btn-wt-i btn-sq"
                             type="submit"
                             onClick={(e) => loginHandler(e, loginCreds, false)}
                         >
@@ -115,7 +115,7 @@ export const Login = () => {
                             <i className="fa-solid fa-angles-right"></i>
                         </button>
                         <button
-                            className="auth-btn btn btn-outline btn-wt-i btn-rd"
+                            className="auth-btn btn btn-outline btn-wt-i btn-sq"
                             type="submit"
                             onClick={(guestLoginHandler)}
                         >

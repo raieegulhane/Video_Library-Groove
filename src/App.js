@@ -12,7 +12,7 @@ const App = () => {
       <ToastContainer
         className="toast-box"
 				theme="colored"
-        position="bottom-right"
+        position="bottom-left"
         autoClose={1500}
         newestOnTop={true}
         pauseOnFocusLoss
@@ -21,9 +21,7 @@ const App = () => {
       <Navbar />
       {
         location.pathname !== "/login" && 
-        location.pathname !== "/signup" &&
-        location.pathname !== "/" &&
-        location.pathname !== "/home" ?
+        location.pathname !== "/signup" ?
         <div className="grid main-wr">
           <SideBar />
           <div>
