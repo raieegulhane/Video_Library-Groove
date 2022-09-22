@@ -157,7 +157,7 @@ export const Signup = () => {
 
                     <div className="form-btn-cn fx-c">
                         <button
-                            className="auth-btn btn btn-primary btn-wt-i"
+                            className="auth-btn btn btn-primary btn-wt-i btn-sq"
                             type="submit"
                             onClick={signupHandler}
                         >
