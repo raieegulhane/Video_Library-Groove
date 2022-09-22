@@ -17,7 +17,7 @@ export const VideoCardVr = ({ video, page}) => {
         channel,
         channelThumbnail
     } = video;
-    const [showOptionBtns, setShowOptionBtn] = useState(false);
+    const [showOptionBtns, setShowOptionBtns] = useState(false);
     const shortViews = getShortenedViewsFunction(views);
     const editedTitle = getTrimmedTitleFunction(title);
 
@@ -51,8 +51,8 @@ export const VideoCardVr = ({ video, page}) => {
         >
             <div
                 className="vc-vr-wr fx-c"
-                onMouseOver={() => setShowOptionBtn(true)}
-                onMouseOut={() => setShowOptionBtn(false)}
+                onMouseOver={() => setShowOptionBtns(true)}
+                onMouseOut={() => setShowOptionBtns(false)}
             >
                 
                 <img 
@@ -82,9 +82,7 @@ export const VideoCardVr = ({ video, page}) => {
                             <i className="vc-del-btn-icon fa-solid fa-trash"></i>
                         </button>
                     }
-                        <button 
-                            className="btn-icon"
-                        >
+                        <button className="btn-icon">
                             <i className="fa-solid fa-ellipsis-vertical"></i>
                         </button>
                     </div>

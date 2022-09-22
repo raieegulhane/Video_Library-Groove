@@ -21,9 +21,7 @@ const App = () => {
       <Navbar />
       {
         location.pathname !== "/login" && 
-        location.pathname !== "/signup" &&
-        location.pathname !== "/" &&
-        location.pathname !== "/home" ?
+        location.pathname !== "/signup" ?
         <div className="grid main-wr">
           <SideBar />
           <div>

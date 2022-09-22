@@ -26,13 +26,16 @@ export const History = () => {
                     <span class="material-icons-outlined">history</span>
                     <span>History</span>
                 </h1>
-                <button 
-                    className="btn btn-outline btn-wt-i btn-sq"
-                    onClick={clearHistoryHandler}
-                >
-                    Clear History
-                    <i className="fa-solid fa-trash"></i>
-                </button>
+                {
+                    history.length > 0 &&
+                    <button 
+                        className="btn btn-outline btn-wt-i btn-sq"
+                        onClick={clearHistoryHandler}
+                    >
+                        Clear History
+                        <i className="fa-solid fa-trash"></i>
+                    </button>
+                }
             </header>
             <div className="hist-cn">
                 {

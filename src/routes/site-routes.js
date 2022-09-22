@@ -3,7 +3,6 @@ import Mockman from "mockman-js";
 import {
     Login, 
     Signup,
-    Home,
     Explore,
     VideoPlayer,
     Playlist,
@@ -23,9 +22,7 @@ export const SiteRoutes = () => {
             <Route path="/login" element={<Login />} /> 
 
             {/* public routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/explore" element={<Explore />} />
+            <Route path="/" element={<Explore />} />
             <Route path="/video/:videoId" element={<VideoPlayer />} />
 
             {/* private routes */}
