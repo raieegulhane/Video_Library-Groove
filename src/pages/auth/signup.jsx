@@ -31,7 +31,7 @@ export const Signup = () => {
     } = userDetails;
 
     useEffect(() => {
-        isAuth && navigate(location?.state?.from ? location.state.from : "/home", { replace: true });
+        isAuth && navigate(location?.state?.from ? location.state.from : "/", { replace: true });
     }, [isAuth])
     
     const updateUserDetails = (event) => {

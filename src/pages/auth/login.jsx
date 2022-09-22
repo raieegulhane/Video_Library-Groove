@@ -22,7 +22,7 @@ export const Login = () => {
     }
 
     useEffect(() => {
-        isAuth && navigate(location?.state?.from ? location.state.from : "/home", { replace: true });
+        isAuth && navigate(location?.state?.from ? location.state.from : "/", { replace: true });
     }, [isAuth])
 
     const loginHandler = async (event, formData, guestLoginStatus) => {
