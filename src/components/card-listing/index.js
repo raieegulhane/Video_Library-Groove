@@ -1,7 +1,7 @@
 import "./card-listing.css";
 import { VideoCardVr } from "..";
 
-export const CardList = ({ videoList }) => {
+export const CardList = ({ videoList, page }) => {
     return(
         <div className="card-list-wr">
             <ul className="list-noBullets fx-r fx-wrap fx-js-s">
@@ -11,6 +11,7 @@ export const CardList = ({ videoList }) => {
                         <li key={index}>
                             <VideoCardVr 
                                 video={video}
+                                page={page}
                             />
                         </li>
                     );

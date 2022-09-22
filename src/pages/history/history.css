@@ -1,0 +1,22 @@
+.hist-wr {
+    padding: 2rem;
+    min-height: 75vh;
+}
+
+.hist-header {
+    padding: 0 2rem;
+}
+
+.hist-heading {
+    font-size: 1.5rem;
+    gap: 0.25rem;
+}
+
+.hist-empty-msg {
+    /* background-color: var(--grey5); */
+    max-width: 50%;
+    padding: 1rem 3rem;
+    border-radius: var(--br-sq);
+    margin: 3rem auto;
+    gap: 2rem;  
+}

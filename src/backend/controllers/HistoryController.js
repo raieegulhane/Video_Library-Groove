@@ -2,12 +2,6 @@ import { Response } from "miragejs";
 import { requiresAuth } from "../utils/authUtils";
 
 /**
- * All the routes related to User History are present here.
- * These are private routes.
- * Client needs to add "authorization" header with JWT token in it to access it.
- * */
-
-/**
  * This handler handles getting videos from user's history.
  * send GET Request at /api/user/history
  * */
@@ -53,7 +47,7 @@ export const addVideoToHistoryHandler = function (schema, request) {
         }
       );
     }
-    const { video } = JSON.parse(request.requestBody);
+    const video = JSON.parse(request.requestBody);
     if (user.history.some((item) => item.id === video.id)) {
       return new Response(
         409,

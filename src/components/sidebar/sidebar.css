@@ -1,7 +1,7 @@
 .sidebar-wr {
     position: sticky;
     top: 12%;
-    height: 88vh;
+    height: 90vh;
     padding: 15% 1rem;
     border-right: 2px solid var(--black);
     gap: 1rem;

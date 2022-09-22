@@ -19,3 +19,8 @@ body {
     background-color: var(--bg-dark);
     grid-template-columns: 1fr 6fr;
 }
+
+.toast-box {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}

@@ -10,14 +10,12 @@ const App = () => {
   return (
     <div className="App">
       <ToastContainer
-        position="top-right"
-        autoClose={2500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
+        className="toast-box"
+				theme="colored"
+        position="bottom-right"
+        autoClose={1500}
+        newestOnTop={true}
         pauseOnFocusLoss
-        draggable
         pauseOnHover
       />
       <Navbar />

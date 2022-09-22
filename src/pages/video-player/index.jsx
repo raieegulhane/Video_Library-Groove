@@ -68,22 +68,19 @@ export const VideoPlayer = () => {
                 </div>
                 <div className="vp-btn-cn fx-r">
                     <button className="vp-btn fx-c fx-al-c">
-                        <span class="vp-btn-icon material-icons-outlined">thumb_up</span>
+                        <span className="vp-btn-icon material-icons-outlined">thumb_up</span>
                         <span className="txt-sm">Like Video</span>
                     </button>
                     <button className="vp-btn fx-c fx-al-c">
-                        <span class="vp-btn-icon material-icons-outlined">queue_music</span>
+                        <span className="vp-btn-icon material-icons-outlined">queue_music</span>
                         <span className="txt-sm">Add to Playlist</span>
                     </button>
                     <button className="vp-btn fx-c fx-al-c">
-                        <span class="vp-btn-icon material-icons-outlined">watch_later</span>
+                        <span className="vp-btn-icon material-icons-outlined">watch_later</span>
                         <span className="txt-sm">Watch Later</span>
                     </button>
                 </div>
-
             </div>
-           
-          
         </div>
     );
 }
