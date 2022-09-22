@@ -1,0 +1,26 @@
+.explore-wr {
+    position: relative;
+    background-color: var(--bg-dark);
+    padding: 1rem;
+}
+
+.op-cn {
+    padding: 1rem 2rem;
+}
+
+.btn-sort {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: 2rem;
+}
+
+.vid-list-info {
+    color: var(--grey2);
+    padding: 1rem 2.25rem;
+}
+
+.ex-info-txt {
+    color: var(--pri);
+    font-weight: bold;
+}

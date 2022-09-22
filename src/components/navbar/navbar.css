@@ -1,5 +1,5 @@
 .nav-wr {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -11,8 +11,8 @@
 }
 
 .nav-logo {
-    max-height: 3.75rem;
-    padding-top: 0.5rem;
+    max-height: 3rem;
+    padding-top: 0.25rem;
 }
 
 .nav-sb-cn {

@@ -9,10 +9,9 @@
 
     /*** color ***/
     --pri: #e50914;
-    --sec: #ff3d47;
-    /* --sec: #b10b0b; */
-    --btn: #720909;
-    --btn-hov: rgb(164, 24, 24);
+    --btn: #b10b0b;
+    --pri-dark: #720909;
+    --btn-hov: #df1c1c;
     --bg-dark: #111;
     --bg-light: #eeeeee;
     --nav-dark: #000000c0;
@@ -21,11 +20,12 @@
     --grey1: #cccccc;
     --grey2: #aaaaaa;
     --grey3: #777;
+    --grey4: #333;
     --grey5: #272727;
-    --auth-bg: #37373720;
-    --auth-inp: #00000050;
+    --auth-bg: #0000006d;
+    --auth-inp: #5d5d5d70;
 
-    --text: #ccc;
+    --text: #eee;
 
     --gradient-rad: radial-gradient(circle, transparent, #00000089);
 

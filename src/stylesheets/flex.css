@@ -24,6 +24,10 @@
     justify-content: space-between;
 }
 
+.fx-js-se {
+    justify-content: space-evenly;
+}
+
 .fx-al-c {
     align-items: center;
 }

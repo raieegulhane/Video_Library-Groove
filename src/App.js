@@ -2,30 +2,34 @@ import "./stylesheets/styles.css";
 import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { SiteRoutes } from "./routes";
-import { Navbar, SideBar } from "./components";
+import { Footer, Navbar, SideBar } from "./components";
 
 const App = () => {
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
     <div className="App">
       <ToastContainer
-        position="top-right"
-        autoClose={2500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
+        className="toast-box"
+				theme="colored"
+        position="bottom-right"
+        autoClose={1500}
+        newestOnTop={true}
         pauseOnFocusLoss
-        draggable
         pauseOnHover
       />
       <Navbar />
       {
-        location.pathname !== "/login" && location.pathname !=="/signup" ?
-        <div className="grid wrapper-main">
+        location.pathname !== "/login" && 
+        location.pathname !== "/signup" &&
+        location.pathname !== "/" &&
+        location.pathname !== "/home" ?
+        <div className="grid main-wr">
           <SideBar />
-          <SiteRoutes />
+          <div>
+            <SiteRoutes />
+            <Footer />
+          </div>
         </div> :
         <SiteRoutes />
       }

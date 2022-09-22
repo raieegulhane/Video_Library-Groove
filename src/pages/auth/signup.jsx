@@ -157,7 +157,7 @@ export const Signup = () => {
 
                     <div className="form-btn-cn fx-c">
                         <button
-                            className="auth-btn-pri btn btn-primary btn-wt-i"
+                            className="auth-btn btn btn-primary btn-wt-i"
                             type="submit"
                             onClick={signupHandler}
                         >
@@ -171,7 +171,7 @@ export const Signup = () => {
                     <span>Already an user?</span> 
                     <Link 
                         to="/login" 
-                        className="btn-link auth-btn-link"
+                        className="btn-link"
                     >
                         Login
                     </Link> 
@@ -181,25 +181,5 @@ export const Signup = () => {
             </div>
 
         </div>
-       
-        //            
-        //             
-        //             
-        //             
-        //             
-        //         </form>
-
-        //         <p className="alt-auth-cta flex-row flex_justify-center">
-        //             <span>Already an user?</span> 
-        //             <Link 
-        //                 to="/login" 
-        //                 className="btn-link link-noDecoration"
-        //             >
-        //                 Login
-        //             </Link> 
-        //             <span>to your account</span>
-        //         </p>
-        //     </div>
-        // </div>
     );
 }

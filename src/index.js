@@ -3,7 +3,13 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { makeServer } from "./server";
-import { AuthProvider, ThemeProvider } from "./contexts";
+import { 
+  AuthProvider, 
+  ThemeProvider, 
+  VideoProvider,
+  OperationProvider,
+  UserDataProvider
+} from "./contexts";
 
 // Call make Server
 makeServer();
@@ -13,7 +19,13 @@ ReactDOM.render(
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
-          <App />
+          <VideoProvider>
+            <OperationProvider>
+              <UserDataProvider>
+                <App />
+              </UserDataProvider>
+            </OperationProvider>
+          </VideoProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
