@@ -1,14 +1,14 @@
 import "./video-card-vr.css";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth, useUserData } from "../../../contexts";
-import { deleteHistoryVideoService, postHistoryService } from "../../../services";
+import { deleteHistoryVideoService, deleteLikedService, deleteWatchLaterService, postHistoryService, postLikedService, postWatchLaterService } from "../../../services";
 import { getShortenedViewsFunction, getTrimmedTitleFunction } from "../../../utils";
 
 export const VideoCardVr = ({ video, page}) => {
-    const { authState: { authToken }} = useAuth();
-    const { userDataDispatch } = useUserData();
+    const location = useLocation();
+    const navigate = useNavigate();
     const {
         _id,
         title,
@@ -17,9 +17,85 @@ export const VideoCardVr = ({ video, page}) => {
         channel,
         channelThumbnail
     } = video;
+    const { authState: { isAuth, authToken }} = useAuth();
+    const { userDataState, userDataDispatch } = useUserData();
+    const { liked, watchLater } = userDataState;
     const [showOptionBtns, setShowOptionBtns] = useState(false);
+    const [isLiked, setIsLiked] = useState(false);
+    const [inWatchlater, setInWatchlater] = useState(false);
     const shortViews = getShortenedViewsFunction(views);
     const editedTitle = getTrimmedTitleFunction(title);
+
+    useEffect(() => {
+        liked.find((item) => item._id === _id) && setIsLiked(true);
+        watchLater.find((item) => item._id === _id) && setInWatchlater(true);
+    }, [_id]);
+
+    const loginPromptHandler = () => {
+        if (!isAuth) {
+            toast.warning("Please login to continue");
+            return navigate("/login", { state: { from: location.pathname } });
+        }
+    }
+
+    const likeVideoHandler = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        loginPromptHandler();
+
+        try {
+            const { data: { likes }} = await postLikedService(video, authToken);
+            userDataDispatch({ type: "SET_LIKED", payload: likes });
+            setIsLiked(true);
+            toast.success("You liked a video");
+        } catch (error) {
+            console.log("ERROR__VIDEO_CARD__LIKE_VIDEO: ", error);
+        }
+    }
+
+    const unlikeVideoHandler = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        try {
+            const { data: { likes }} = await deleteLikedService(_id, authToken);
+            userDataDispatch({ type: "SET_LIKED", payload: likes });
+            setIsLiked(false);
+            toast.info("You unliked a video");
+        } catch (error) {
+            console.log("ERROR__VIDEO_CARD__UNLIKE_VIDEO: ", error);
+        }
+    }
+
+    const addToWtachlaterHandler = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        loginPromptHandler();
+
+        try {
+            const { data: { watchlater }} = await postWatchLaterService(video, authToken);
+            userDataDispatch({ type: "SET_WATCHLATER", payload: watchlater });
+            setInWatchlater(true);
+            toast.success("Video added to watch later");
+        } catch (error) {
+            console.log("ERROR__VIDEO_CARD__ADD_TO_WATCHLATER: ", error);
+        }
+    }
+
+    const removeFromWathclaterHandler = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        try {
+            const { data: { watchlater }} = await deleteWatchLaterService(_id, authToken);
+            userDataDispatch({ type: "SET_WATCHLATER", payload: watchlater });
+            setInWatchlater(false);
+            toast.info("Video removed from watch later");
+        } catch (error) {
+            console.log("ERROR__VIDEO_CARD__REMOVE_FROM_WATCHLATER: ", error);
+        }
+    }
 
     const addToHistoryHandler = async () => {
         try {
@@ -54,7 +130,6 @@ export const VideoCardVr = ({ video, page}) => {
                 onMouseOver={() => setShowOptionBtns(true)}
                 onMouseOut={() => setShowOptionBtns(false)}
             >
-                
                 <img 
                     src={`https://i.ytimg.com/vi/${_id}/mqdefault.jpg`}
                     alt={`${title} thumbnail`}
@@ -77,7 +152,7 @@ export const VideoCardVr = ({ video, page}) => {
                         page==="history" &&
                         <button 
                             className="btn-icon"
-                            onClick={(e) => deleteVideoFromHistory(e)}
+                            onClick={deleteVideoFromHistory}
                         >
                             <i className="vc-del-btn-icon fa-solid fa-trash"></i>
                         </button>
@@ -92,10 +167,16 @@ export const VideoCardVr = ({ video, page}) => {
                         <button className="vc-vr-btn btn-icon">
                             <span className="vc-vr-btn-icon material-icons-outlined">queue_music</span>
                         </button>
-                        <button className="vc-vr-btn btn-icon">
+                        <button 
+                            className={`vc-vr-btn ${isLiked && "vc-vr-btn-selected"} btn-icon`}
+                            onClick={isLiked ? unlikeVideoHandler : likeVideoHandler}
+                        >
                             <span className="vc-vr-btn-icon material-icons-outlined">thumb_up</span>
                         </button>
-                        <button className="vc-vr-btn btn-icon">
+                        <button 
+                            className={`vc-vr-btn ${inWatchlater && "vc-vr-btn-selected"} btn-icon`}
+                            onClick={inWatchlater ? removeFromWathclaterHandler : addToWtachlaterHandler}    
+                        >
                             <span className="vc-vr-btn-icon material-icons-outlined">watch_later</span>
                         </button>
                         <button className="vc-vr-btn btn-icon">

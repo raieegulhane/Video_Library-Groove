@@ -12,7 +12,7 @@ const App = () => {
       <ToastContainer
         className="toast-box"
 				theme="colored"
-        position="bottom-right"
+        position="bottom-left"
         autoClose={1500}
         newestOnTop={true}
         pauseOnFocusLoss

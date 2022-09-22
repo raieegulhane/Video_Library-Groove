@@ -29,5 +29,8 @@ export const filterByCategoryFunction = (videoList, selectedCtegory) => {
 
         case "Pop":
             return([ ...videoList ].filter(({ category }) => category === "Pop"));
+
+        default:
+            return([ ...videoList ]);
     }
 }

@@ -23,7 +23,7 @@ const userDataReducerFunction = (state, { type, payload }) => {
                 }
             );
 
-        case "SET_WATCH_LATER":
+        case "SET_WATCHLATER":
             return(
                 {
                     ...state,

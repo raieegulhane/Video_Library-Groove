@@ -1,11 +1,13 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { toast } from "react-toastify";
+import { useAuth } from ".";
 import { initialUserDataValues, userDataReducerFunction } from "../reducers";
-import { getHistoryService } from "../services";
+import { getHistoryService, getLikedService, getWatchLaterService } from "../services";
 
 const UserDataContext = createContext(initialUserDataValues);
 
 const UserDataProvider = ({ children }) => {
+    const { authState: { authToken } } = useAuth();
     const [userDataState, userDataDispatch] = useReducer(userDataReducerFunction, initialUserDataValues);
 
     useEffect (() => {
@@ -14,14 +16,14 @@ const UserDataProvider = ({ children }) => {
                 // const fetchAllPlaylistsResponse = await getHistoryService();
                 // userDataDispatch({ type: "SET_HISTORY", payload: fetchHistoryResponse.data.videos});
 
-                // const fetchLikedResponse = await getHistoryService();
-                // userDataDispatch({ type: "SET_HISTORY", payload: fetchHistoryResponse.data.videos});
+                const { data: { likes }} = await getLikedService(authToken);
+                userDataDispatch({ type: "SET_LIKED", payload: likes});
 
-                // const fetchWatchLaterResponse = await getHistoryService();
-                // userDataDispatch({ type: "SET_HISTORY", payload: fetchHistoryResponse.data.videos});
+                const { data: { watchlater }} = await getWatchLaterService(authToken);
+                userDataDispatch({ type: "SET_WATCHLATER", payload: watchlater});
 
-                const fetchHistoryResponse = await getHistoryService();
-                userDataDispatch({ type: "SET_HISTORY", payload: fetchHistoryResponse.data.videos});
+                const { data: { history }} = await getHistoryService(authToken);
+                userDataDispatch({ type: "SET_HISTORY", payload: history});
             } catch (error) {
                 console.log("USER_DATA_CONTEXT__FETCH_DATA_ERROR: ", error)
                 toast.error("Error occured while fetching videos.");
