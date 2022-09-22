@@ -17,5 +17,5 @@ body {
 .main-wr {
     position: relative;
     background-color: var(--bg-dark);
-    grid-template-columns: 1fr 5.5fr;
+    grid-template-columns: 1fr 6fr;
 }

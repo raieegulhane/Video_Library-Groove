@@ -18,7 +18,7 @@ export const Explore = () => {
                     onClick={() => operationDispatch({ type: "SORT_DROPDOWN" })}
                 >
                     Sort 
-                    <i class="material-icons-outlined">sort</i>
+                    <i className="material-icons-outlined">sort</i>
                 </button>
                 {
                     operationState.showSortDropdown &&
@@ -26,7 +26,7 @@ export const Explore = () => {
                 }
             </div>
             <div className="vid-list-info">
-                <p className="">Videos found: <span className="ex-info-txt">{allVideos.length}</span></p>
+                <p className="">Videos found: <span className="ex-info-txt">{sortedAndFilteredVideoList.length}</span></p>
             </div>
             <CardList 
                 videoList={sortedAndFilteredVideoList}

@@ -1,7 +1,7 @@
 const initialOperationValues = {
     selectedCategory: "",
     sortOption: "",
-    showSortDropdown: ""
+    showSortDropdown: "",
 }
 
 const operationsReducerFunction = (state, { type, payload }) => {

@@ -55,7 +55,7 @@ export const videos = [
     description: "BLACKPINK - Music Video",
     views: "324621935",
     uploadDate: "Aug 19, 2022",
-    category: "K-pop",
+    category: "K-Pop",
     channel: "BLACKPINK",
     channelThumbnail: "https://yt3.ggpht.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s48-c-k-c0x00ffffff-no-nd-rj"
   },
@@ -90,14 +90,14 @@ export const videos = [
     channelThumbnail: "https://yt3.ggpht.com/fmEEBMDRdxuvCIUcwRY0EouK4OjK_ai5wUKsW7ZLAjv32Ult_qFDoJnylTLldDCCRDaCXqh9-g=s48-c-k-c0x00ffffff-no-nd-rj"
   },
   {
-    _id: "ioNng23DkIM",
-    title: "How You Like That",
-    description: "Official music video - BLACKPINK",
-    views: "1148511981",
-    uploadDate: "Jun 26, 2020",
+    _id: "gdZLi9oWNZg",
+    title: "Dynamite",
+    description: "BTS - Official music video",
+    views: "1566506982",
+    uploadDate: "Aug 21, 2020",
     category: "K-Pop",
-    channel: "BLACKPINK",
-    channelThumbnail: "https://yt3.ggpht.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s48-c-k-c0x00ffffff-no-nd-rj"
+    channel: "HYBE LABELS",
+    channelThumbnail: "https://yt3.ggpht.com/ytc/AMLnZu9_QkJFEa-xNihtl6W2gSoHeZOocElDWPiAzoFokw=s48-c-k-c0x00ffffff-no-rj"
   },
   {
     _id: "gCYcHz2k5x0",
@@ -152,7 +152,7 @@ export const videos = [
   {
     _id: "uv9Dv6fzg9w",
     title: "Dholida",
-    description: "Dholida | Full Music Video | Gangubai Kathiawadi | Sanjay Leela Bhansali | Alia Bhatt",
+    description: "Full Music Video | Gangubai Kathiawadi | Sanjay Leela Bhansali | Alia Bhatt",
     views: "16831141",
     uploadDate: "Apr 14, 2022",
     category: "Bollywood",
@@ -182,7 +182,7 @@ export const videos = [
   {
     _id: "QN1odfjtMoo",
     title: "Zitti E Buoni",
-    description: "Måneskin - Official Video – Sanremo & EUROVISION 2021 Winners",
+    description: "Måneskin - Official Video | Sanremo & EUROVISION 2021 Winners",
     views: "148588788",
     uploadDate: "Mar 3, 2021",
     category: "Rock",
@@ -222,7 +222,7 @@ export const videos = [
   {
     _id: "fJ9rUzIMcZQ",
     title: "Bohemian Rhapsody",
-    description: "Queen – Official Video Remastered",
+    description: "Queen | Official Video Remastered",
     views: "1532273703",
     uploadDate: "Aug 1, 2008",
     category: "Rock",
@@ -282,7 +282,7 @@ export const videos = [
   {
     _id: "XU3eFkY1BTI",
     title: "Mohe Rang Do Laal",
-    description: "Mohe Rang Do Laal (Official Video Song) | Bajirao Mastani | Ranveer Singh & Deepika Padukone",
+    description: "Official Video Song | Bajirao Mastani | Ranveer Singh & Deepika Padukone",
     views: "58441469",
     uploadDate: "Jan 6, 2016",
     category: "Classical",
@@ -292,7 +292,7 @@ export const videos = [
   {
     _id: "v-tjloemRzE",
     title: "Mere Tum",
-    description: "Mere Tum - Neyhal ft. Karan Malhotra | Big Indie Bang | New Hindi Song 2021",
+    description: "Neyhal ft. Karan Malhotra | Big Indie Bang | New Hindi Song 2021",
     views: "783540",
     uploadDate: "Mar 2, 2021",
     category: "Indie",

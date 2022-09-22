@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     border-color: var(--btn);
-    border-radius: var(--br-cr);
 }
 
 .btn:hover {

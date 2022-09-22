@@ -1,0 +1,51 @@
+.vp-wr {
+    padding-bottom: 2rem;
+}
+
+.vp-yt-cn {
+    width: 100%;
+    height: 500px;
+    border-top: 1px solid var(--bg-dark);
+}
+
+.vp-cn {
+    padding: 0.75rem 1.5rem;
+}
+
+.vp-info-cn {
+    gap: 1rem;
+}
+
+.vp-channel-thumbnail {
+    height: 3.5rem;
+    width: 3.5rem;
+    border: 1px solid var(--grey5);
+    border-radius: var(--br-rd);
+}
+
+.vp-btn-cn {
+    padding: 0.5rem;
+    gap: 1.5rem;
+}
+
+.vp-info-txt {
+    color: var(--grey2);
+}
+
+.vp-btn {
+    background-color: transparent;
+    color: var(--grey2);
+    height: fit-content;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    gap: 0.25rem;
+}
+
+.vp-btn:hover {
+    color: var(--text);
+}
+
+.vp-btn-icon {
+    font-size: 1.75rem;
+}

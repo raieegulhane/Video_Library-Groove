@@ -5,7 +5,7 @@ import {
     Signup,
     Home,
     Explore,
-    // VideoPlayer,
+    VideoPlayer,
     Playlist,
     Liked,
     WatchLater,
@@ -26,7 +26,7 @@ export const SiteRoutes = () => {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
-            {/* <Route path="/videoplayer" element={<Home />} /> */}
+            <Route path="/video/:videoId" element={<VideoPlayer />} />
 
             {/* private routes */}
             <Route path="/" element={<PrivateRoutes />}>

@@ -22,4 +22,5 @@
 
 .ex-info-txt {
     color: var(--pri);
+    font-weight: bold;
 }

@@ -1,17 +1,19 @@
 .vc-vr-wr {
-    width: 270px;
+    position: relative;
+    width: 290px;
     max-width: 100%;
     padding: 0.5rem;
     border-radius: var(--br-sq);
     margin: 0.5rem;
     gap: 0.5rem;
-    transition: transform .2s;
+    transition: transform 0.5s;
     cursor: pointer;
 }
 
 .vc-vr-wr:hover {
     background-color: var(--grey5);
     transform: scale(1.1);
+    z-index: 3;
 }
 
 .vc-vr-cn {
@@ -32,4 +34,29 @@
 
 .vc-txt {
     color: var(--grey3);
+}
+
+.vc-vr-btn-cn {
+    display: none;
+    position: absolute;
+    bottom: 1.1rem;
+    right: 0.6rem;
+    background-color: var(--grey5);
+    padding: 1rem 0;
+    border-radius: var(--br-cr);
+    margin-top: 0.25rem;
+    gap: 1rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+}
+
+.vc-vr-btn-cn.vc-btn-cn-visible {
+    display: flex;
+}
+
+.btn-icon.vc-vr-btn {
+    height: fit-content;
+}
+
+.btn-icon.vc-vr-btn:hover {
+    color: var(--text);
 }
