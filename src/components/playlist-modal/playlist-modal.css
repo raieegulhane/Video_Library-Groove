@@ -76,6 +76,7 @@
 
 .pm-pl-label {
     gap: 0.5rem;
+    cursor: pointer;
 }
 
 .pm-done-btn {

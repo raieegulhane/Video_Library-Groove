@@ -38,6 +38,7 @@ export const CommonPage = ({ itemList, page, title, onClick }) => {
                     <div className="page-empty-msg fx-c fx-al-c">
                         <p>
                             { page === "playlist" && "You have not created any playlists yet."}
+                            { page === "current-playlist" && "No videos added to this playlist"}
                             { page === "liked" && "You have not liked any videos."}
                             { page === "watchlater" && "You have saved any videos for watching later."}
                             { page === "history" && "Nothing found in history. You have not watched any videos."}

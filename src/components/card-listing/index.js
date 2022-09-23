@@ -13,6 +13,7 @@ export const CardList = ({ itemList, page }) => {
                             page === "playlist" ?
                             <PlaylistCard 
                                 playlist={item}
+                                page={page}
                             /> :
                             <VideoCardVr 
                                 video={item}
