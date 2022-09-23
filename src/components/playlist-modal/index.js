@@ -32,8 +32,6 @@ export const PlaylistModal = ({ video }) => {
                 userDataDispatch({ type: "UPDATE_PLAYLIST", payload: playlist });
                 toast.success(`"${video.title}" added to "${playlistTitle}"`);
             }
-
-            operationDispatch({ type: "PLAYLIST_MODAL" });
         } catch (error) {
             console.log("ERROR__PLAYLIST_MODAL__ADD_VIDEO_TO_PLAYLIST: ", error);
             if (error.response.status === 409) {
@@ -44,25 +42,29 @@ export const PlaylistModal = ({ video }) => {
         }
     }
 
-    const addNewPlaylistHandler = async (event) => {
+    const addPlaylistClickHandler = async () => {
+        try {
+            const { data: { playlists }} = await postPlaylistService({ playlist: { playlistTitle: newPlaylistName } }, authToken);
+            userDataDispatch({ type: "SET_PLAYLISTS", payload: playlists });
+            toast.success("New playlist added");
+        } catch (error) {
+            console.log("ERROR__PLAYLIST_MODAL__POST_PLAYLIST: ", error);
+            if (error.response.status === 409) {
+                toast.warning("Playlist with this name already exists")
+            } else {
+                toast.error("Sorry. Unable to create playlist");
+            }
+        }
+        setNewPlaylistName("");
+    }
+
+    const addNewPlaylistHandler = (event) => {
         const { value } = event.target
         if (event.key === "Enter" && !value) {
             toast.warning("Enter playlist name");
         }
         if (event.key === "Enter" && value) {
-            setNewPlaylistName("");
-            try {
-                const { data: { playlists }} = await postPlaylistService({ playlist: { playlistTitle: value } }, authToken);
-                userDataDispatch({ type: "SET_PLAYLISTS", payload: playlists });
-                toast.success("New playlist added");
-            } catch (error) {
-                console.log("ERROR__PLAYLIST_MODAL__POST_PLAYLIST: ", error);
-                if (error.response.status === 409) {
-                    toast.warning("Playlist with this name already exists")
-                } else {
-                    toast.error("Sorry. Unable to create playlist");
-                }
-            }
+            addPlaylistClickHandler()
         } 
     }
 
@@ -86,7 +88,10 @@ export const PlaylistModal = ({ video }) => {
                             onChange={(e) => {setNewPlaylistName(e.target.value)}}
                             onKeyDown={addNewPlaylistHandler}
                         ></input>
-                        <button className="pm-inp-btn btn-icon">
+                        <button 
+                            className="pm-inp-btn btn-icon"
+                            onClick={addPlaylistClickHandler}
+                        >
                             <span className="material-icons-outlined">add</span>
                         </button>
                     </div>
@@ -122,6 +127,12 @@ export const PlaylistModal = ({ video }) => {
                         </ul>
                     </div>
                 }
+                <button 
+                    className="pm-done-btn txt-bold btn-link"
+                    onClick={() => operationDispatch({ type: "PLAYLIST_MODAL" })}
+                >
+                    Done
+                </button>
             </div>
         </div>
     );
