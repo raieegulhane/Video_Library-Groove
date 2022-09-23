@@ -1,11 +1,19 @@
 import "./stylesheets/styles.css";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { SiteRoutes } from "./routes";
-import { Footer, Navbar, SideBar } from "./components";
+import { Footer, Navbar, PlaylistModal, SideBar } from "./components";
+import { useOperation } from "./contexts";
 
 const App = () => {
   const location = useLocation();
+  const { operationState: { playlistModal }} = useOperation();
+  const { showPlaylistModal, currentVideo } = playlistModal;
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [location.pathname]);
 
   return (
     <div className="App">
@@ -31,6 +39,13 @@ const App = () => {
         </div> :
         <SiteRoutes />
       }
+      {
+        showPlaylistModal &&
+        <PlaylistModal 
+          video={currentVideo}
+        />
+      }
+      
     </div>
   );
 }

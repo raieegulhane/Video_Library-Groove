@@ -42,10 +42,21 @@ export const getAllPlaylistsHandler = function (schema, request) {
  * body contains {playlist: {title: "foo", description:"bar bar bar" }}
  * */
 
+// added condition- playlist with same names cannot be created
+
 export const addNewPlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const { playlist } = JSON.parse(request.requestBody);
+    if (user.playlists.some((item) => item.playlistTitle === playlist.playlistTitle)) {
+      return new Response(
+        409,
+        {},
+        {
+          errors: ["This playlist already exists"]
+        }
+      );
+    }
     user.playlists.push({ ...playlist, videos: [], _id: uuid() });
     return new Response(201, {}, { playlists: user.playlists });
   }
@@ -89,7 +100,7 @@ export const getVideosFromPlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const playlistId = request.params.playlistId;
-    const playlist = user.playlists.find((item) => item._id !== playlistId);
+    const playlist = user.playlists.find((item) => item._id === playlistId);
     return new Response(200, {}, { playlist });
   }
   return new Response(
@@ -109,7 +120,7 @@ export const addVideoToPlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const playlistId = request.params.playlistId;
-    const { video } = JSON.parse(request.requestBody);
+    const video = JSON.parse(request.requestBody);
     const playlist = user.playlists.find((item) => item._id === playlistId);
     if (playlist.videos.some((item) => item.id === video.id)) {
       return new Response(

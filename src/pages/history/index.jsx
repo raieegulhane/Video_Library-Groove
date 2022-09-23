@@ -19,8 +19,9 @@ export const History = () => {
 
     return (
         <CommonPage 
-            videoList={history}
+            itemList={history}
             page="history"
+            title="History"
             onClick={clearHistoryHandler}
         />
     );

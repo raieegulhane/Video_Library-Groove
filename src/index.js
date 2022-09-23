@@ -5,7 +5,6 @@ import App from "./App";
 import { makeServer } from "./server";
 import { 
   AuthProvider, 
-  ThemeProvider, 
   VideoProvider,
   OperationProvider,
   UserDataProvider
@@ -17,17 +16,15 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <AuthProvider>
-          <VideoProvider>
-            <OperationProvider>
-              <UserDataProvider>
-                <App />
-              </UserDataProvider>
-            </OperationProvider>
-          </VideoProvider>
-        </AuthProvider>
-      </ThemeProvider>
+      <AuthProvider>
+        <VideoProvider>
+          <OperationProvider>
+            <UserDataProvider>
+              <App />
+            </UserDataProvider>
+          </OperationProvider>
+        </VideoProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

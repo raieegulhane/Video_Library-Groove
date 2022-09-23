@@ -1,6 +1,5 @@
 /***** fonts *****/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap');
 
 :root {
     /*** fonts ***/
@@ -24,14 +23,13 @@
     --grey5: #272727;
     --auth-bg: #0000006d;
     --auth-inp: #5d5d5d70;
-
+    --modal-bg: #00000060;
     --text: #eee;
 
+    /* gradient */
     --gradient-rad: radial-gradient(circle, transparent, #00000089);
 
     /*** border ***/
     --br: 1px solid var(--pri);
     --br-rad: 3px;
-
-
 }

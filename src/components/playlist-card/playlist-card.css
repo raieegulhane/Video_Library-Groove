@@ -1,0 +1,60 @@
+.plc-wr {
+    color: var(--text);
+    width: 290px;
+    padding: 0.5rem;
+    border-radius: var(--br-sq);
+    margin: 0.5rem;
+    gap: 0.25rem;
+}
+
+.plc-wr:hover {
+    background-color: var(--grey5);
+    transform: scale(1.1);
+    z-index: 3;
+}
+
+.plc-img-cn {
+    position: relative;
+}
+
+.plc-img {
+    width: 100%;
+}
+
+.empty-pl-card {
+    background-color: var(--grey4);
+    width: 100%;
+    height: 156px;
+}
+
+.plc-img-ol {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 35%;
+    background-color: var(--nav-dark);
+}
+
+.plc-info-cn {
+    padding: 0 0.5rem;
+}
+
+.plc-ol-txt {
+    font-size: 1.25rem;
+}
+
+.plc-title {
+    font-size: 1rem;
+}
+
+.plc-btn {
+    height: fit-content;
+    width: fit-content;
+}
+
+.plc-btn-icon {
+    font-size: 1rem;
+}
+
+

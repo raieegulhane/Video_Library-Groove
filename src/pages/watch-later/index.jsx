@@ -6,8 +6,9 @@ export const WatchLater = () => {
 
     return (
         <CommonPage 
-            videoList={watchLater}
+            itemList={watchLater}
             page="watchlater"
+            title="Watch Later"
         />
     );
 }

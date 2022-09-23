@@ -26,7 +26,7 @@ export const Navbar = () => {
         <nav 
             className="nav-wr fx-r fx-js-sb fx-al-c"
         >
-            <Link to={"/home"}>
+            <Link to={"/"}>
                 <img 
                     src={NavbarLogo} 
                     alt="groove-logo" 
