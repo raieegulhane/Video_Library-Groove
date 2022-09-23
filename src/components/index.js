@@ -9,3 +9,4 @@ export { CategoryList } from "./category-list";
 export { SortDropdown } from "./sort-dropdown";
 export { CommonPage } from "./common-page";
 export { PlaylistModal } from "./playlist-modal";
+export { PlaylistCard } from "./playlist-card";

@@ -82,7 +82,7 @@ export const VideoPlayer = () => {
 
     const playlistHandler = () => {
         loginPromptHandler();
-        operationDispatch({ type: "PLAYLIST_MODAL" });
+        operationDispatch({ type: "PLAYLIST_MODAL", payload: currentVideo });
     }
 
     const addToWtachlaterHandler = async () => {

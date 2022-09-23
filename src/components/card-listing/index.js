@@ -1,18 +1,24 @@
 import "./card-listing.css";
-import { VideoCardVr } from "..";
+import { VideoCardVr, PlaylistCard } from "..";
 
-export const CardList = ({ videoList, page }) => {
+export const CardList = ({ itemList, page }) => {
     return(
         <div className="card-list-wr">
-            <ul className="list-noBullets fx-r fx-wrap fx-js-s">
+            <ul className="list-noBullets fx-r fx-wrap fx-js-s fx-al-c">
             {
-                videoList.map((video, index) => {
+                itemList.map((item) => {
                     return(
-                        <li key={index}>
+                        <li key={item._id}>
+                        {
+                            page === "playlist" ?
+                            <PlaylistCard 
+                                playlist={item}
+                            /> :
                             <VideoCardVr 
-                                video={video}
+                                video={item}
                                 page={page}
                             />
+                        }
                         </li>
                     );
                 })

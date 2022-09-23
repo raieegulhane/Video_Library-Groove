@@ -26,13 +26,14 @@ export const PlaylistModal = ({ video }) => {
             if (videoInPaylist(videos)) {
                 const { data: { playlist }} = await deletePlaylistVideoService(_id, video._id, authToken);
                 userDataDispatch({ type: "UPDATE_PLAYLIST", payload: playlist });
-                toast.info(`${video.title} was removed from ${playlistTitle}`);
+                toast.info(`"${video.title}" removed from "${playlistTitle}"`);
             } else {
                 const { data: { playlist }} = await  postPlaylistVideoService(_id, video, authToken);
                 userDataDispatch({ type: "UPDATE_PLAYLIST", payload: playlist });
-                toast.success(`${video.title} was added to ${playlistTitle}`);
+                toast.success(`"${video.title}" added to "${playlistTitle}"`);
             }
-                
+
+            operationDispatch({ type: "PLAYLIST_MODAL" });
         } catch (error) {
             console.log("ERROR__PLAYLIST_MODAL__ADD_VIDEO_TO_PLAYLIST: ", error);
             if (error.response.status === 409) {

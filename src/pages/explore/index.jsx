@@ -29,7 +29,7 @@ export const Explore = () => {
                 <p className="">Videos found: <span className="ex-info-txt">{sortedAndFilteredVideoList.length}</span></p>
             </div>
             <CardList 
-                videoList={sortedAndFilteredVideoList}
+                itemList={sortedAndFilteredVideoList}
             />
         </div>
     );

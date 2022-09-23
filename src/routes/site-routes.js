@@ -6,6 +6,7 @@ import {
     Explore,
     VideoPlayer,
     Playlist,
+    CurrentPlaylist,
     Liked,
     WatchLater,
     History
@@ -28,6 +29,7 @@ export const SiteRoutes = () => {
             {/* private routes */}
             <Route path="/" element={<PrivateRoutes />}>
                 <Route path="/playlist" element={<Playlist />} />
+                <Route path="/playlist/:playlistId" element={<CurrentPlaylist />} />
                 <Route path="/liked" element={<Liked />} />
                 <Route path="/watch-later" element={<WatchLater />} />
                 <Route path="/history" element={<History />} />

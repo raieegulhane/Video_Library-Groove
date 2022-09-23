@@ -6,8 +6,9 @@ export const Liked = () => {
 
     return (
         <CommonPage 
-            videoList={liked}
+            itemList={liked}
             page="liked"
+            title="Liked Videos"
         />
     );
 }

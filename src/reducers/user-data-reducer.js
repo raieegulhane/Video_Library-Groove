@@ -10,7 +10,6 @@ const userDataReducerFunction = (state, { type, payload }) => {
 
     switch (type) {
         case "SET_PLAYLISTS":
-            console.log(payload)
             return(
                 {
                     ...state,

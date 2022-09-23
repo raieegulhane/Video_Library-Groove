@@ -1,6 +1,7 @@
 .page-wr {
     min-height: 75vh;
     padding: 1rem;
+    cursor: pointer;
 }
 
 .page-header {
