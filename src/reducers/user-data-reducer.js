@@ -6,15 +6,30 @@ const initialUserDataValues = {
 }
 
 const userDataReducerFunction = (state, { type, payload }) => {
+    const { allPlaylists } = state;
+
     switch (type) {
-        case "SET_PLAYLIST_LIST":
+        case "SET_PLAYLISTS":
+            console.log(payload)
             return(
                 {
                     ...state,
                     allPlaylists: [ ...payload ]
                 }
             );
-            
+
+        case "UPDATE_PLAYLIST":
+            return(
+                {
+                    ...state,
+                    allPlaylists: [ ...allPlaylists ].map((exPlaylists) => 
+                        exPlaylists._id === payload._id ?
+                        { ...payload } : 
+                        { ...exPlaylists }
+                    )
+                }
+            );
+        
         case "SET_LIKED":
             return(
                 {

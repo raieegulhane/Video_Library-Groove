@@ -1,10 +1,10 @@
-import "./video-card-vr.css";
+import "./video-card.css";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useAuth, useUserData } from "../../../contexts";
-import { deleteHistoryVideoService, deleteLikedService, deleteWatchLaterService, postHistoryService, postLikedService, postWatchLaterService } from "../../../services";
-import { getShortenedViewsFunction, getTrimmedTitleFunction } from "../../../utils";
+import { useAuth, useOperation, useUserData } from "../../contexts";
+import { deleteHistoryVideoService, deleteLikedService, deleteWatchLaterService, postHistoryService, postLikedService, postWatchLaterService } from "../../services";
+import { getShortenedViewsFunction, getTrimmedTitleFunction } from "../../utils";
 
 export const VideoCardVr = ({ video, page}) => {
     const location = useLocation();
@@ -18,6 +18,7 @@ export const VideoCardVr = ({ video, page}) => {
         channelThumbnail
     } = video;
     const { authState: { isAuth, authToken }} = useAuth();
+    const { operationDispatch } = useOperation();
     const { userDataState, userDataDispatch } = useUserData();
     const { liked, watchLater } = userDataState;
     const [showOptionBtns, setShowOptionBtns] = useState(false);
@@ -36,6 +37,14 @@ export const VideoCardVr = ({ video, page}) => {
             toast.warning("Please login to continue");
             return navigate("/login", { state: { from: location.pathname } });
         }
+    }
+
+    const playlistHandler = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        loginPromptHandler();
+        operationDispatch({ type: "PLAYLIST_MODAL", payload: video });
     }
 
     const likeVideoHandler = async (event) => {
@@ -164,7 +173,10 @@ export const VideoCardVr = ({ video, page}) => {
                 </div>
                 {
                     <div className={`vc-vr-btn-cn fx-c ${showOptionBtns && "vc-btn-cn-visible"}`}>
-                        <button className="vc-vr-btn btn-icon">
+                        <button 
+                            className="vc-vr-btn btn-icon"
+                            onClick={playlistHandler}
+                        >
                             <span className="vc-vr-btn-icon material-icons-outlined">queue_music</span>
                         </button>
                         <button 

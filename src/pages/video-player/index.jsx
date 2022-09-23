@@ -1,17 +1,17 @@
 import "./video-player.css";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ReactPlayer from 'react-player/youtube'
 import { toast } from "react-toastify";
 import { deleteLikedService, deleteWatchLaterService, getVideoByIdService, postLikedService, postWatchLaterService } from "../../services";
 import { getShortenedViewsFunction } from "../../utils";
-import { useAuth, useUserData } from "../../contexts";
+import { useAuth, useOperation, useUserData } from "../../contexts";
 
 export const VideoPlayer = () => {
     const navigate = useNavigate();
-    const location = useLocation();
     const { videoId } = useParams();
     const { authState: { isAuth, authToken }} = useAuth();
+    const { operationDispatch } = useOperation();
     const { userDataState, userDataDispatch } = useUserData();
     const { liked, watchLater } = userDataState;
     const [currentVideo, setCurrentVideo] = useState({});
@@ -56,10 +56,7 @@ export const VideoPlayer = () => {
         }
     }
 
-    const likeVideoHandler = async (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-
+    const likeVideoHandler = async () => {
         loginPromptHandler();
 
         try {
@@ -72,10 +69,7 @@ export const VideoPlayer = () => {
         }
     }
 
-    const unlikeVideoHandler = async (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-
+    const unlikeVideoHandler = async () => {
         try {
             const { data: { likes }} = await deleteLikedService(_id, authToken);
             userDataDispatch({ type: "SET_LIKED", payload: likes });
@@ -86,10 +80,12 @@ export const VideoPlayer = () => {
         }
     }
 
-    const addToWtachlaterHandler = async (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+    const playlistHandler = () => {
+        loginPromptHandler();
+        operationDispatch({ type: "PLAYLIST_MODAL" });
+    }
 
+    const addToWtachlaterHandler = async () => {
         loginPromptHandler();
 
         try {
@@ -102,9 +98,7 @@ export const VideoPlayer = () => {
         }
     }
 
-    const removeFromWathclaterHandler = async (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+    const removeFromWathclaterHandler = async () => {
         try {
             const { data: { watchlater }} = await deleteWatchLaterService(_id, authToken);
             userDataDispatch({ type: "SET_WATCHLATER", payload: watchlater });
@@ -155,6 +149,7 @@ export const VideoPlayer = () => {
                     </button>
                     <button 
                         className="vp-btn fx-c fx-al-c"
+                        onClick={playlistHandler}
                     >
                         <span className="vp-btn-icon material-icons-outlined">queue_music</span>
                         <span className="txt-sm">Add to Playlist</span>

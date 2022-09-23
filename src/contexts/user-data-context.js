@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from ".";
 import { initialUserDataValues, userDataReducerFunction } from "../reducers";
-import { getHistoryService, getLikedService, getWatchLaterService } from "../services";
+import { getHistoryService, getLikedService, getPlaylistService, getWatchLaterService } from "../services";
 
 const UserDataContext = createContext(initialUserDataValues);
 
@@ -13,8 +13,8 @@ const UserDataProvider = ({ children }) => {
     useEffect (() => {
         (async () => {
             try {
-                // const fetchAllPlaylistsResponse = await getHistoryService();
-                // userDataDispatch({ type: "SET_HISTORY", payload: fetchHistoryResponse.data.videos});
+                const { data: { playlists }} = await getPlaylistService(authToken);
+                userDataDispatch({ type: "SET_PLAYLISTS", payload: playlists });
 
                 const { data: { likes }} = await getLikedService(authToken);
                 userDataDispatch({ type: "SET_LIKED", payload: likes});
