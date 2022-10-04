@@ -33,9 +33,9 @@ export const Navbar = () => {
                     className="nav-logo"
                 />
             </Link>
-            <div className="nav-sb-cn">
+            {/* <div className="nav-sb-cn">
                 <SearchBox />
-            </div>
+            </div> */}
             <div className="fx-r fx-al-c gap-1">
                 <button 
                     className="btn btn-wt-i btn-outline btn-1"
